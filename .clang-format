@@ -1,0 +1,66 @@
+# WT_FreeRTOS 统一 C 代码风格
+# 基准：你的手写风格（4 空格、Allman 大括号、指针贴变量名、强转无空格、宏对齐）
+# 规范化：保留 include 顺序、行宽 100、单行语句禁写、二进制运算符换行规范
+---
+BasedOnStyle: LLVM
+Language: Cpp
+
+# ---- 缩进：4 空格，不用 Tab ----
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ContinuationIndentWidth: 4
+
+# ---- 行宽：100 列软限制；字符串字面量不自动拆 ----
+# ---- 注释：禁止重排块注释；行尾注释前留 4 个空格（约一个 Tab 的距离） ----
+SpacesBeforeTrailingComments: 4
+ReflowComments: false
+# ---- 文件结尾：保证以换行结束（末尾空行由 format.ps1 补）----
+InsertNewlineAtEOF: true
+ColumnLimit: 100
+BreakStringLiterals: false
+
+# ---- 大括号：Allman（你的风格，大括号独占一行）----
+BreakBeforeBraces: Allman
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortBlocksOnASingleLine: Never
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+
+# ---- 空格：if/for/while 后留空格，函数调用不留；强转后不留空格 ----
+SpaceBeforeParens: ControlStatementsExceptControlMacros
+SpacesInParentheses: false
+SpaceInEmptyParentheses: false
+SpaceAfterCStyleCast: false
+BitFieldColonSpacing: After
+
+# ---- 指针：`char *str`（星号贴变量名）----
+PointerAlignment: Right
+DerivePointerAlignment: false
+
+# ---- 对齐：连续宏对齐（你的事件位就是这样写的）----
+AlignConsecutiveMacros:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: false
+  AlignCompound: false
+  PadOperators: true
+AlignAfterOpenBracket: Align
+MaxEmptyLinesToKeep: 2
+IndentCaseLabels: true
+IndentGotoLabels: false
+
+# ---- include：系统头文件 <...> 在前，工程头文件 "..." 在后，组内按字母排序 ----
+SortIncludes: Never
+IncludeBlocks: Preserve
+IncludeCategories:
+  - Regex: '^<'
+    Priority: 1
+  - Regex: '^"'
+    Priority: 2
+
+# ---- 多行表达式：运算符留在行尾（你的风格）；续行反斜杠不强制对齐 ----
+AlignEscapedNewlines: DontAlign
+BreakBeforeBinaryOperators: None

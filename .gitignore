@@ -1,0 +1,25 @@
+# Build products
+build/
+*.o
+*.d
+*.elf
+*.hex
+*.bin
+*.map
+*.axf
+*.crf
+*.lst
+
+# Local generated files
+compile_commands.json
+.cache/
+.cursor/
+.vscode/
+NUL
+
+# Keil generated files (this public copy uses GCC/Make)
+mdk/
+
+# Real local credentials: never commit
+app/wifi_config_local.h
+app/weather_config_local.h

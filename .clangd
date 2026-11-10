@@ -1,0 +1,5 @@
+CompileFlags:
+  Remove: [-fexec-charset=GBK]
+
+Diagnostics:
+  UnusedIncludes: None
